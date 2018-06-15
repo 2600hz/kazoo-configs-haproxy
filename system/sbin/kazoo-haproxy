@@ -48,7 +48,7 @@ start() {
 	fi
 
 	set -- ${BIN_FILE} -f ${CFG_FILE} -p ${PID_FILE} ${OPTIONS} "$@"
-	if [ "$(whoami)" == "${USER}" ]; then
+	if [ "$(whoami)" = "${USER}" ]; then
 		exec "$@"
 	else
 		runuser -s /bin/bash ${USER} -c "$*"
@@ -101,13 +101,13 @@ status() {
 		if [ -z "$svname" ]; then
 			continue
 		fi
-		if [ "$svname" == 'svname' ]; then
+		if [ "$svname" = 'svname' ]; then
 			continue
 		fi
-		if [ "$svname" == 'BACKEND' ]; then
+		if [ "$svname" = 'BACKEND' ]; then
 			continue
 		fi
-		if [ "$svname" == 'FRONTEND' ]; then
+		if [ "$svname" = 'FRONTEND' ]; then
 			continue
 		fi
 		echo -n "|"
@@ -120,7 +120,7 @@ status() {
 				SIZE=6
 			fi
 			eval VALUE=\$$NAME
-			if [ "${VAR}" == 'check_duration' ]; then
+			if [ "${VAR}" = 'check_duration' ]; then
 				VALUE="${VALUE}ms"
 			fi
 			printf "%-${SIZE}s |" ${VALUE:-0}
