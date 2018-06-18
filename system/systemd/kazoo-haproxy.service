@@ -14,6 +14,7 @@ ExecStart=/usr/sbin/kazoo-haproxy start
 ExecReload=/bin/kill -USR2 $MAINPID
 ExecStop=/usr/sbin/kazoo-haproxy stop
 Restart=on-abort
+KillMode=mixed
 
 [Install]
 WantedBy=multi-user.target
