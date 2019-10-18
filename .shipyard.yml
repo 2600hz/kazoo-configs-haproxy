@@ -63,7 +63,7 @@ package:
       path:
         - /usr/sbin/kazoo-haproxy
         - /usr/lib/systemd/system/kazoo-haproxy.service
-    url: 'http://www.2600hz.org'
+    url: http://www.2600hz.org
     vendor: 2600Hz
 metapackage:
   -
