@@ -1,5 +1,6 @@
 name: kazoo-configs-haproxy
 base_branch: origin/5.1
+exposure: private
 base_core: null
 template: spec.tmpl
 package:
