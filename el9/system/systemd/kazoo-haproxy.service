@@ -1,0 +1,19 @@
+# /usr/lib/systemd/system/kazoo-haproxy.service
+[Unit]
+Description=HAProxy Load Balancer Configured for Kazoo
+After=syslog.target network.target
+Wants=network-online.target
+
+[Service]
+EnvironmentFile=-/etc/sysconfig/haproxy
+Environment="CONFIG=/etc/kazoo/haproxy/haproxy.cfg" "PIDFILE=/run/haproxy.pid" "CFGDIR=/etc/kazoo/haproxy/conf.d"
+ExecStartPre=/usr/sbin/haproxy -f $CONFIG -f $CFGDIR -c -q $OPTIONS
+ExecStart=/usr/sbin/haproxy -Ws -f $CONFIG -f $CFGDIR -p $PIDFILE $OPTIONS
+ExecReload=/usr/sbin/haproxy -f $CONFIG -f $CFGDIR -c -q $OPTIONS
+ExecReload=/bin/kill -USR2 $MAINPID
+KillMode=mixed
+SuccessExitStatus=143
+Type=notify
+
+[Install]
+WantedBy=multi-user.target
