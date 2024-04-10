@@ -6,7 +6,7 @@ Wants=network-online.target
 
 [Service]
 EnvironmentFile=-/etc/sysconfig/haproxy
-Environment="CONFIG=/etc/kazoo/haproxy/haproxy.cfg" "PIDFILE=/run/haproxy.pid" "CFGDIR=/etc/kazoo/haproxy/conf.d"
+Environment="CONFIG=/etc/kazoo/haproxy/haproxy.cfg" "PIDFILE=/run/kazoo-haproxy.pid" "CFGDIR=/etc/kazoo/haproxy/conf.d"
 ExecStartPre=/usr/sbin/haproxy -f $CONFIG -f $CFGDIR -c -q $OPTIONS
 ExecStart=/usr/sbin/haproxy -Ws -f $CONFIG -f $CFGDIR -p $PIDFILE $OPTIONS
 ExecReload=/usr/sbin/haproxy -f $CONFIG -f $CFGDIR -c -q $OPTIONS
