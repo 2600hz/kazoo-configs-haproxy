@@ -160,6 +160,7 @@ package:
       mkdir -p %{buildroot}/etc/kazoo
       cp -r haproxy %{buildroot}/etc/kazoo
       cp CHANGELOG VERSION %{buildroot}/etc/kazoo/haproxy
+      mkdir -p %{buildroot}/etc/kazoo/haproxy/conf.d
 
       mkdir -p %{buildroot}/usr/sbin
       cp -r  system/sbin/* %{buildroot}/usr/sbin
