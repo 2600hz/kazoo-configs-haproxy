@@ -5,6 +5,7 @@ After=syslog.target network.target
 Wants=network-online.target
 
 [Service]
+LimitNOFILE=65536
 EnvironmentFile=-/etc/sysconfig/haproxy
 Environment="CONFIG=/etc/kazoo/haproxy/haproxy.cfg" "PIDFILE=/run/kazoo-haproxy.pid" "CFGDIR=/etc/kazoo/haproxy/conf.d"
 ExecStartPre=/usr/sbin/haproxy -f $CONFIG -f $CFGDIR -c -q $OPTIONS
