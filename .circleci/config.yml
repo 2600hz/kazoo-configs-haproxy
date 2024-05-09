@@ -80,7 +80,7 @@ jobs:
           name: 'Preparing source for packaging'
           command: |-
             echo " - preparing source"
-            cp -R ${APP_DIR}/* ${BUILD_SOURCES}/
+            cp -R ${APP_DIR}/el7/* ${BUILD_SOURCES}/
             cd $BUILD_SOURCES
             echo " - removing files that should not be packaged in the source tar"
             rm -rf ${BUILD_SOURCES}/.??*
@@ -152,7 +152,7 @@ jobs:
           name: 'Preparing source for packaging'
           command: |-
             echo " - preparing source"
-            cp -R ${APP_DIR}/* ${BUILD_SOURCES}/
+            cp -R ${APP_DIR}/el8/* ${BUILD_SOURCES}/
             cd $BUILD_SOURCES
             echo " - removing files that should not be packaged in the source tar"
             rm -rf ${BUILD_SOURCES}/.??*
@@ -224,7 +224,7 @@ jobs:
           name: 'Preparing source for packaging'
           command: |-
             echo " - preparing source"
-            cp -R ${APP_DIR}/* ${BUILD_SOURCES}/
+            cp -R ${APP_DIR}/el9/* ${BUILD_SOURCES}/
             cd $BUILD_SOURCES
             echo " - removing files that should not be packaged in the source tar"
             rm -rf ${BUILD_SOURCES}/.??*
