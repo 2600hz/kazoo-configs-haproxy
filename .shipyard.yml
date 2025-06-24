@@ -205,5 +205,5 @@ metapackage:
     name: meta-kazoo-haproxy
     package: kazoo-configs-haproxy
     type: required
-    branch: 'master'
+    branch: master
 dependencies: null
