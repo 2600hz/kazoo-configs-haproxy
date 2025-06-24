@@ -11,9 +11,9 @@ fi
 RETVAL=1
 USER=${HAPROXY_USER:-root}
 BIN_FILE=${HAPROXY_BIN:-/usr/sbin/haproxy}
-PID_FILE=${HAPROXY_PID:-/var/run/haproxy/kazoo-haproxy.pid}
+PID_FILE=${HAPROXY_PID:-/run/kazoo-haproxy.pid}
+SOCKET=${HAPROXY_SOCKET:-/var/lib/haproxy/haproxy.sock}
 CFG_FILE=${HAPROXY_CONFIG:-/etc/kazoo/haproxy/haproxy.cfg}
-SOCKET=${HAPROXY_SOCKET:-/var/run/haproxy/haproxy.sock}
 export HOME=${HAPROXY_HOME:-/var/lib/haproxy}
 
 check_socket() {
