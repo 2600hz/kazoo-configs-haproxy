@@ -147,7 +147,13 @@ reload() {
 		return
 	fi
 
-	${BIN_FILE} -f ${CFG_FILE} -p ${PID_FILE} ${OPTIONS} -sf $(cat ${PID_FILE}) $@
+	# Under the systemd unit, reload the master in place so systemd keeps
+	# tracking it; otherwise start a detached process that takes over the old one.
+	if systemctl is-active --quiet kazoo-haproxy 2>/dev/null; then
+		systemctl reload kazoo-haproxy
+	else
+		${BIN_FILE} -D -f ${CFG_FILE} -p ${PID_FILE} ${OPTIONS} -sf $(cat ${PID_FILE}) $@
+	fi
 	RETVAL=$?
 }
 
